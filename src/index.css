@@ -1,0 +1,11 @@
+footer{
+    position: fixed ;
+    bottom: 0 ;
+    width: 100vw ;
+    background-color: rgb(128, 128, 128);
+    color: white;
+}
+
+header {
+  margin-bottom: 70px;
+}
