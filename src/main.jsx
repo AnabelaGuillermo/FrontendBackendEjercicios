@@ -4,7 +4,6 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./constants/routes.jsx";
 
 import Ejercicio2 from './views/Ejercicio2.jsx';
-import Ejercicio4 from './views/Ejercicio4.jsx';
 
 import "./index.css";
 

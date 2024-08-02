@@ -41,16 +41,6 @@ const Header = () => {
                   Ejercicio 2
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                  to="/Ejercicio4"
-                >
-                  Ejercicio 4
-                </NavLink>
-              </li>
             </ul>
           </div>
         </div>
