@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import AddTaskForm from "../components/AddTaskForm";
-import EditTaskForm from "../components/EditTaskForm";
+import EditTaskForm from "./EditTaskForm";
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
 
-const Ejercicio2 = () => {
+const TaskList = () => {
   const [tasks, setTasks] = useState([]);
   const [editingTaskId, setEditingTaskId] = useState(null);
 
@@ -35,7 +34,7 @@ const Ejercicio2 = () => {
         throw new Error("No se pudo eliminar la tarea.");
       }
 
-      setTasks(tasks.filter((task) => task._id !== taskId));
+      setTasks(tasks.filter(task => task._id !== taskId));
       console.log("Tarea eliminada.");
     } catch (error) {
       console.error("Error al eliminar tarea:", error);
@@ -44,12 +43,9 @@ const Ejercicio2 = () => {
 
   return (
     <div>
-      <h1>Administración de tareas</h1>
-      <AddTaskForm />
-
-      <h2>Lista de tareas</h2>
+      <h1>Lista de tareas</h1>
       <ul>
-        {tasks.map((task) => (
+        {tasks.map(task => (
           <li key={task._id}>
             {task.name} - {task.description}
             <button onClick={() => setEditingTaskId(task._id)}>Editar</button>
@@ -57,16 +53,11 @@ const Ejercicio2 = () => {
           </li>
         ))}
       </ul>
-
       {editingTaskId && (
         <EditTaskForm
           taskId={editingTaskId}
           onTaskUpdated={(updatedTask) => {
-            setTasks(
-              tasks.map((task) =>
-                task._id === updatedTask._id ? updatedTask : task
-              )
-            );
+            setTasks(tasks.map(task => (task._id === updatedTask._id ? updatedTask : task)));
             setEditingTaskId(null);
           }}
         />
@@ -75,4 +66,4 @@ const Ejercicio2 = () => {
   );
 };
 
-export default Ejercicio2;
+export default TaskList;

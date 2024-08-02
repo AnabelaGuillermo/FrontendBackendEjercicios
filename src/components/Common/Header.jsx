@@ -6,7 +6,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            <img src="../public/vite.svg" alt="Logo" />
+            <img src="../vite.svg" alt="Logo" />
           </Link>
           <button
             className="navbar-toggler"
